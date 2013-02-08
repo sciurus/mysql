@@ -65,6 +65,11 @@ event_scheduler      = <%= node['mysql']['tunable']['event_scheduler'] %>
 skip-character-set-client-handshake
 <%- end %>
 
+# Make table name comparision case-insensitive
+<%- if node['mysql']['tunable']['lower_case_table_names'] %>
+lower_case_table_names  = 1
+<%- end %>
+
 #
 # Instead of skip-networking the default is now to listen only on
 # localhost which is more compatible and is not less secure.
